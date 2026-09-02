@@ -1,401 +1,571 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Responsive Expense Manager built with HTML, CSS and Vanilla JavaScript">
-
-    <title>Expense Manager</title>
+    <title>JavaScript Core Concepts</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
+
+    <!-- Header -->
     <header class="header">
 
-        <div class="header-container">
+        <div class="container">
 
-            <div>
-                <h1>Expense Manager</h1>
+            <h1>JavaScript Core Concepts</h1>
 
-                <p>
-                    Track, manage and analyze your expenses
-                </p>
-            </div>
+            <p>
+                Learn and practice 10 important JavaScript concepts
+                with definitions, examples, and live demonstrations.
+            </p>
 
-            <button id="addExpenseBtn" class="btn btn-primary">
-                + Add Expense
-            </button>
+            <nav>
+                <a href="#q1">Q1</a>
+                <a href="#q2">Q2</a>
+                <a href="#q3">Q3</a>
+                <a href="#q4">Q4</a>
+                <a href="#q5">Q5</a>
+                <a href="#q6">Q6</a>
+                <a href="#q7">Q7</a>
+                <a href="#q8">Q8</a>
+                <a href="#q9">Q9</a>
+                <a href="#q10">Q10</a>
+            </nav>
 
         </div>
 
     </header>
+
+
     <main class="container">
 
-        <section class="stats-grid">
+        <!-- Q1 -->
+        <section class="question-card" id="q1">
 
-            <div class="stat-card">
+            <span class="question-number">QUESTION 01</span>
 
-                <div class="stat-icon">
-                    💰
-                </div>
+            <h2>var vs let vs const</h2>
 
-                <div>
-
-                    <p>Total Expenses</p>
-
-                    <h2 id="totalExpenses">
-                        $0.00
-                    </h2>
-
-                </div>
-
+            <div class="definition">
+                <strong>Definition:</strong>
+                var, let, and const are JavaScript keywords used to
+                declare variables, but they differ in scope,
+                reassignment, redeclaration, and hoisting.
             </div>
 
-            <div class="stat-card">
+            <h3>Example</h3>
 
-                <div class="stat-icon">
-                    📅
-                </div>
+            <pre><code>var name = "Ali";
+name = "Ahmed";
 
-                <div>
+let age = 20;
+age = 21;
 
-                    <p>This Month</p>
+const country = "Pakistan";
 
-                    <h2 id="currentMonthExpenses">
-                        $0.00
-                    </h2>
+console.log(name);
+console.log(age);
+console.log(country);</code></pre>
 
-                </div>
+            <h3>Key Differences</h3>
 
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>var</th>
+                    <th>let</th>
+                    <th>const</th>
+                </tr>
+
+                <tr>
+                    <td>Scope</td>
+                    <td>Function</td>
+                    <td>Block</td>
+                    <td>Block</td>
+                </tr>
+
+                <tr>
+                    <td>Reassignment</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>Redeclaration</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <!-- Q2 -->
+        <section class="question-card" id="q2">
+
+            <span class="question-number">QUESTION 02</span>
+
+            <h2>== vs ===</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                == compares values after type conversion, while ===
+                compares both value and data type without type conversion.
             </div>
 
+            <h3>Example</h3>
 
-            <div class="stat-card">
+            <pre><code>console.log(5 == "5");
+// true
 
-                <div class="stat-icon">
-                    📊
-                </div>
+console.log(5 === "5");
+// false</code></pre>
 
-                <div>
+            <button onclick="runEqualityExample()">
+                Run Example
+            </button>
 
-                    <p>Average Expense</p>
+            <div class="output" id="equalityOutput">
+                Click the button to see the result.
+            </div>
 
-                    <h2 id="averageExpense">
-                        $0.00
-                    </h2>
+            <p class="tip">
+                Recommended: Use <strong>===</strong> in modern JavaScript.
+            </p>
 
-                </div>
+        </section>
 
+
+        <!-- Q3 -->
+        <section class="question-card" id="q3">
+
+            <span class="question-number">QUESTION 03</span>
+
+            <h2>Closures</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                A closure is a function that remembers and can access
+                variables from its outer function even after the outer
+                function has finished executing.
+            </div>
+
+            <h3>Example</h3>
+
+            <pre><code>function counter() {
+
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+const myCounter = counter();
+
+console.log(myCounter());
+console.log(myCounter());
+console.log(myCounter());</code></pre>
+
+            <button onclick="runClosureExample()">
+                Run Closure
+            </button>
+
+            <div class="output" id="closureOutput">
+                Click the button to start the counter.
             </div>
 
         </section>
 
-        <section class="controls">
 
-            <div class="search-box">
+        <!-- Q4 -->
+        <section class="question-card" id="q4">
 
-                <span>🔎</span>
+            <span class="question-number">QUESTION 04</span>
 
-                <input type="search" id="searchInput" placeholder="Search by expense title...">
+            <h2>Event Loop</h2>
 
+            <div class="definition">
+                <strong>Definition:</strong>
+                The event loop allows JavaScript to handle asynchronous
+                operations without blocking the main thread.
             </div>
 
-            <select id="categoryFilter">
+            <h3>Example</h3>
 
-                <option value="all">
-                    All Categories
-                </option>
+            <pre><code>console.log("A");
 
-                <option value="Food">
-                    Food
-                </option>
+setTimeout(() => {
+    console.log("B");
+}, 0);
 
-                <option value="Transport">
-                    Transport
-                </option>
+console.log("C");</code></pre>
 
-                <option value="Shopping">
-                    Shopping
-                </option>
+            <h3>Expected Output</h3>
 
-                <option value="Bills">
-                    Bills
-                </option>
+            <div class="output">
+                A<br>
+                C<br>
+                B
+            </div>
 
-                <option value="Other">
-                    Other
-                </option>
+            <button onclick="runEventLoopExample()">
+                Run Event Loop
+            </button>
 
-            </select>
-
-            <select id="sortSelect">
-
-                <option value="date-desc">
-                    Date: Newest First
-                </option>
-
-                <option value="date-asc">
-                    Date: Oldest First
-                </option>
-
-                <option value="amount-desc">
-                    Amount: High to Low
-                </option>
-
-                <option value="amount-asc">
-                    Amount: Low to High
-                </option>
-
-                <option value="title-asc">
-                    Title: A to Z
-                </option>
-
-                <option value="title-desc">
-                    Title: Z to A
-                </option>
-
-            </select>
+            <div class="output" id="eventLoopOutput">
+                Click the button.
+            </div>
 
         </section>
 
-        <div id="message" class="message hidden" role="alert"></div>
 
-        <section class="expenses-section">
+        <!-- Q5 -->
+        <section class="question-card" id="q5">
 
-            <div class="section-header">
+            <span class="question-number">QUESTION 05</span>
 
-                <div>
+            <h2>Promise and async/await</h2>
 
-                    <h2>Expenses</h2>
+            <div class="definition">
+                <strong>Definition:</strong>
+                A Promise represents the future result of an asynchronous
+                operation, while async/await provides cleaner syntax for
+                working with Promises.
+            </div>
 
-                    <p id="expenseCount">
-                        0 expenses found
+            <h3>Promise Example</h3>
+
+            <pre><code>const myPromise = new Promise((resolve, reject) => {
+
+    const success = true;
+
+    if (success) {
+        resolve("Task completed successfully");
+    } else {
+        reject("Task failed");
+    }
+
+});
+
+myPromise
+    .then(result => console.log(result))
+    .catch(error => console.log(error));</code></pre>
+
+            <button onclick="runPromiseExample()">
+                Run Promise
+            </button>
+
+            <div class="output" id="promiseOutput">
+                Click the button.
+            </div>
+
+            <h3>async/await Example</h3>
+
+            <pre><code>async function getData() {
+
+    try {
+
+        const result = await myPromise;
+
+        console.log(result);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+}</code></pre>
+
+        </section>
+
+
+        <!-- Q6 -->
+        <section class="question-card" id="q6">
+
+            <span class="question-number">QUESTION 06</span>
+
+            <h2>Array Methods</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                map(), filter(), reduce(), and forEach() are JavaScript
+                array methods used to process array elements.
+            </div>
+
+            <div class="method-grid">
+
+                <div class="method">
+                    <h3>map()</h3>
+
+                    <p>
+                        Creates a new array by transforming every element.
                     </p>
 
+                    <pre><code>[1, 2, 3].map(x => x * 2);</code></pre>
+                </div>
+
+
+                <div class="method">
+                    <h3>filter()</h3>
+
+                    <p>
+                        Creates a new array containing matching elements.
+                    </p>
+
+                    <pre><code>[1, 2, 3, 4]
+.filter(x => x > 2);</code></pre>
+                </div>
+
+
+                <div class="method">
+                    <h3>reduce()</h3>
+
+                    <p>
+                        Combines array elements into one value.
+                    </p>
+
+                    <pre><code>[1, 2, 3, 4]
+.reduce((a, b) => a + b, 0);</code></pre>
+                </div>
+
+
+                <div class="method">
+                    <h3>forEach()</h3>
+
+                    <p>
+                        Executes a function for every element.
+                    </p>
+
+                    <pre><code>[1, 2, 3]
+.forEach(x => console.log(x));</code></pre>
                 </div>
 
             </div>
 
-            <div id="expenseList" class="expense-list"></div>
+            <button onclick="runArrayMethods()">
+                Run All Methods
+            </button>
 
-            <div id="emptyState" class="empty-state hidden">
+            <div class="output" id="arrayOutput">
+                Click the button.
+            </div>
 
-                <div class="empty-icon">
-                    💸
-                </div>
+        </section>
 
-                <h3>
-                    No Expenses Found
-                </h3>
 
-                <p>
-                    Add an expense or change your search/filter.
-                </p>
+        <!-- Q7 -->
+        <section class="question-card" id="q7">
 
-                <button id="emptyAddBtn" class="btn btn-primary">
-                    Add Expense
-                </button>
+            <span class="question-number">QUESTION 07</span>
+
+            <h2>Event Delegation</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                Event delegation means attaching one event listener to a
+                parent element to handle events from its child elements.
+            </div>
+
+            <h3>DOM Example</h3>
+
+            <pre><code>const taskList =
+    document.getElementById("taskList");
+
+taskList.addEventListener("click", function(event) {
+
+    if (event.target.tagName === "LI") {
+        console.log(event.target.textContent);
+    }
+
+});</code></pre>
+
+            <h3>Click a Task</h3>
+
+            <ul id="taskList" class="task-list">
+
+                <li>Learn HTML</li>
+
+                <li>Learn CSS</li>
+
+                <li>Learn JavaScript</li>
+
+                <li>Build a Website</li>
+
+            </ul>
+
+            <div class="output" id="delegationOutput">
+                Click any task above.
+            </div>
+
+        </section>
+
+
+        <!-- Q8 -->
+        <section class="question-card" id="q8">
+
+            <span class="question-number">QUESTION 08</span>
+
+            <h2>map() Result</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                map() creates a new array by applying a function to every
+                element of the original array.
+            </div>
+
+            <h3>Example</h3>
+
+            <pre><code>const result =
+    [1, 2, 3, 4].map(x => x * 2);
+
+console.log(result);</code></pre>
+
+            <button onclick="runMapExample()">
+                Run map()
+            </button>
+
+            <div class="output" id="mapOutput">
+                Click the button.
+            </div>
+
+            <div class="calculation">
+
+                <p>1 × 2 = 2</p>
+                <p>2 × 2 = 4</p>
+                <p>3 × 2 = 6</p>
+                <p>4 × 2 = 8</p>
+
+                <strong>Result: [2, 4, 6, 8]</strong>
 
             </div>
+
+        </section>
+
+
+        <!-- Q9 -->
+        <section class="question-card" id="q9">
+
+            <span class="question-number">QUESTION 09</span>
+
+            <h2>Arrow Function this</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                Arrow functions do not have their own this; they inherit
+                this from the surrounding lexical scope.
+            </div>
+
+            <h3>Incorrect Example</h3>
+
+            <pre><code>const person = {
+
+    name: "Khadija",
+
+    getName: () => {
+        return this.name;
+    }
+
+};</code></pre>
+
+            <p>
+                The arrow function does not create its own
+                <strong>this</strong>, so it does not refer to the
+                <strong>person</strong> object.
+            </p>
+
+            <h3>Correct Example</h3>
+
+            <pre><code>const person = {
+
+    name: "Khadija",
+
+    getName: function () {
+        return this.name;
+    }
+
+};
+
+console.log(person.getName());</code></pre>
+
+            <button onclick="runThisExample()">
+                Run this Example
+            </button>
+
+            <div class="output" id="thisOutput">
+                Click the button.
+            </div>
+
+        </section>
+
+
+        <!-- Q10 -->
+        <section class="question-card" id="q10">
+
+            <span class="question-number">QUESTION 10</span>
+
+            <h2>API Request using fetch()</h2>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                fetch() is a JavaScript API used to make HTTP requests
+                and receive data from a server.
+            </div>
+
+            <h3>GET Request Example</h3>
+
+            <pre><code>async function getTasks() {
+
+    const response =
+        await fetch("/api/tasks/");
+
+    const tasks =
+        await response.json();
+
+    console.log(tasks);
+}</code></pre>
+
+            <button onclick="loadTasks()">
+                GET /api/tasks/
+            </button>
+
+            <div class="api-status" id="apiStatus">
+                Click the button to request tasks.
+            </div>
+
+            <div id="taskResults" class="task-results"></div>
 
         </section>
 
     </main>
-
-    <div id="expenseModal" class="modal hidden">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <div>
-
-                    <h2 id="modalTitle">
-                        Add Expense
-                    </h2>
-
-                    <p>
-                        Enter the expense information.
-                    </p>
-
-                </div>
-
-                <button id="closeModalBtn" class="close-btn" aria-label="Close">
-                    &times;
-                </button>
-
-            </div>
-
-            <form id="expenseForm" novalidate>
-
-                <input type="hidden" id="expenseId">
-
-                <div class="form-group">
-
-                    <label for="expenseTitle">
-                        Expense Title
-                    </label>
-
-                    <input type="text" id="expenseTitle" placeholder="Example: Grocery shopping" maxlength="100">
-
-                    <small id="titleError" class="field-error"></small>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="expenseCategory">
-                        category
-                    </label>
-
-                    <select id="expenseCategory">
-
-                        <option value="">
-                            Select category
-                        </option>
-
-                        <option value="Food">
-                            Food
-                        </option>
-
-                        <option value="Transport">
-                            Transport
-                        </option>
-
-                        <option value="Shopping">
-                            Shopping
-                        </option>
-
-                        <option value="Bills">
-                            Bills
-                        </option>
-
-                        <option value="Other">
-                            Other
-                        </option>
-
-                    </select>
-
-                    <small id="categoryError" class="field-error"></small>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="expenseAmount">
-                        Amount
-                    </label>
-
-                    <input type="number" id="expenseAmount" min="0.01" step="0.01" placeholder="Example: 250.50">
-
-                    <small id="amountError" class="field-error"></small>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="expenseDate">
-                        Date
-                    </label>
-
-                    <input type="date" id="expenseDate">
-
-                    <small id="dateError" class="field-error"></small>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="expenseDescription">
-                        Description
-                    </label>
-
-                    <textarea id="expenseDescription" placeholder="Optional description..." maxlength="300"></textarea>
-
-                    <small id="descriptionError" class="field-error"></small>
-
-                </div>
-
-                <div class="form-actions">
-
-                    <button type="button" id="cancelBtn" class="btn btn-secondary">
-                        Cancel
-                    </button>
-
-                    <button type="submit" class="btn btn-primary">
-                        Save Expense
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= DELETE MODAL ================= -->
-
-    <div id="deleteModal" class="modal hidden">
-
-        <div class="delete-content">
-
-            <div class="warning-icon">
-                ⚠️
-            </div>
-
-            <h2>
-                Delete Expense?
-            </h2>
-
-            <p>
-                Are you sure you want to delete this expence?
-                This action cannot be undone.
-            </p>
-
-            <div class="form-actions">
-
-                <button id="cancelDeleteBtn" class="btn btn-secondary">
-                    Cancel
-                </button>
-
-                <button id="confirmDeleteBtn" class="btn btn-danger">
-                    Delete
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= FOOTER ================= -->
-
     <footer>
 
-        <p>
-            Expense Manager © 2026
-        </p>
+        <div class="container">
 
-        <p>
-            Built with HTML, CSS and Vanilla JavaScript
-        </p>
+            <h2>JavaScript Core Concepts</h2>
+
+            <p>
+                A complete learning project covering 10 important
+                JavaScript concepts.
+            </p>
+
+            <p>
+                © 2026 JavaScript Learning Project
+            </p>
+
+        </div>
 
     </footer>
 
 
-    <!-- JavaScript -->
-
     <script src="script.js"></script>
 
 </body>
-
 </html>
